@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author sophietagar
- *
- */
-package MyPackage;
