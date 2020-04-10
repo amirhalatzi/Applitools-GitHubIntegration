@@ -47,7 +47,7 @@ public class NewTest {
 		try {
 			System.out.println("in test method");
 			eyes.open(driver, AppName, TestName, new RectangleSize(800, 600));
-			driver.get("https://applitools.com/helloworld?diff1");
+			driver.get("https://applitools.com/helloworld");
 
 			
 			eyes.checkWindow();
