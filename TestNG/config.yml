@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+     run:
+          -"export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
+          -cd TestNG
+          -mvn test
