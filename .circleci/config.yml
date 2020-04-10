@@ -1,11 +1,13 @@
-version: 2.1
-
-orbs:
-  maven: circleci/maven@0.0.12
-
-workflows:
-  maven_test:
-    jobs: 
-     "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
-      cd TestNG
-      mvn test
+  
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+     run:
+        commands:
+          -"export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
+          -cd TestNG
+          -mvn test
