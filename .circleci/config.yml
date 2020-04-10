@@ -1,11 +1,26 @@
-version: 2
+version: 2.1
 jobs:
+  run_applitools_tests:
     docker:
       - image: circleci/node:10-browsers
     steps:
       - checkout
-     run:
-        command: |
-          echo "export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1" >> $BASH_ENV
-          cd TestNG
-          mvn test
+
+      - run:
+          command: echo "export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1" >> $BASH_ENV
+
+      - run:
+          command: echo $APPLITOOLS_BATCH_ID
+
+      - run:
+          command: echo $CIRCLE_SHA1
+
+      - run:
+          command: |
+            echo "export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1" >> $BASH_ENV
+            cd TestNG
+            mvn test
+workflows:
+  test:
+    jobs:
+      - run_applitools_tests
