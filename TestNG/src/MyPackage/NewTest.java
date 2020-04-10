@@ -15,9 +15,9 @@ import com.applitools.eyes.selenium.Eyes;
 public class NewTest {
 	public Eyes eyes = new Eyes();
 	public String AppName = "GithubIntegration";
-	public String TestName = "Test_Github_Integration";  
+	public String TestName = "Test_Github_Integration";
 	RemoteWebDriver driver;
-	
+
 	@BeforeMethod
 	public void setUpBeforMethod() throws MalformedURLException {
 		System.out.println("--------------test-----------------");
@@ -26,18 +26,17 @@ public class NewTest {
 		final String sauceUser = System.getenv("SAUCE_USER");
 		final String sauceKey = System.getenv("SAUCE_KEY");
 		String url = "http://" + sauceUser + ":" + sauceKey + "@ondemand.saucelabs.com:80/wd/hub";
-		
-		
+
 		DesiredCapabilities caps = DesiredCapabilities.chrome();
 		caps.setCapability("platform", "Windows 10");
 		caps.setCapability("version", "65.0");
 
 		driver = new RemoteWebDriver(new URL(url), caps);
-		
-		String batchId   = System.getenv("APPLITOOLS_BATCH_ID");
+
+		String batchId = System.getenv("APPLITOOLS_BATCH_ID");
 		System.out.println(System.getenv("APPLITOOLS_BATCH_ID"));
 		String batchName = "TestNG";
-		BatchInfo batchInfo = new BatchInfo(batchName); 
+		BatchInfo batchInfo = new BatchInfo(batchName);
 		batchInfo.setId(batchId);
 		eyes.setBatch(batchInfo);
 	}
@@ -47,13 +46,12 @@ public class NewTest {
 		try {
 			System.out.println("in test method");
 			eyes.open(driver, AppName, TestName, new RectangleSize(800, 600));
-			driver.get("https://applitools.com/helloworld?diff1");
+			driver.get("https://applitools.com/helloworld?diff2");
 
-			
 			eyes.checkWindow();
 			System.out.println("in test method 2");
 			eyes.close();
-//			System.out.println("Main Branch");
+			// System.out.println("Main Branch");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
