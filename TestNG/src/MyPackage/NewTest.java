@@ -16,7 +16,7 @@ import com.applitools.eyes.selenium.fluent.Target;
 public class NewTest {
 	public Eyes eyes = new Eyes();
 	public String AppName = "GithubIntegration";
-
+	RemoteWebDriver driver;
 	public String TestName = "Test_Github_Integration";
 
 	@BeforeMethod
@@ -34,7 +34,6 @@ public class NewTest {
 
 		driver = new RemoteWebDriver(new URL(url), caps);
 
-
 		String batchId = System.getenv("APPLITOOLS_BATCH_ID");
 		System.out.println(System.getenv("APPLITOOLS_BATCH_ID"));
 		String batchName = "TestNG";
@@ -44,8 +43,8 @@ public class NewTest {
 		eyes.setBatch(batchInfo);
 		System.out.println("batch name");
 		System.out.println(eyes.getBatch().getName());
-		
-		//eyes.setBranchName("master");
+
+		// eyes.setBranchName("master");
 
 	}
 
@@ -54,16 +53,15 @@ public class NewTest {
 		try {
 			System.out.println("in test method");
 
-// 			eyes.setBranchName("BranchName");
-			//eyes.setBranchName("SophieDePaula/Applitools-GitHubIntegration/master2");
+			// eyes.setBranchName("BranchName");
+			// eyes.setBranchName("SophieDePaula/Applitools-GitHubIntegration/master2");
 			eyes.setSaveNewTests(true);
 
 			eyes.open(driver, AppName, TestName, new RectangleSize(800, 600));
 
-
 			driver.get("https://applitools.com/helloworld/?diff2");
 
-			//eyes.checkWindow();
+			// eyes.checkWindow();
 			eyes.check("test", Target.window());
 			System.out.println("in test method 2");
 			eyes.close(false);
