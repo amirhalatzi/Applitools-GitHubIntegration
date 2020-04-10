@@ -18,6 +18,7 @@ jobs:
       - run:
           command: |
             echo "export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1" >> $BASH_ENV
+            apt-get install maven
             cd TestNG
             mvn test
 workflows:
