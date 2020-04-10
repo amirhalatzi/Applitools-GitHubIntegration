@@ -2,8 +2,6 @@ version: 2
 jobs:
   build:
     steps:
-      - checkout
-     run:
-          -"export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
-          -cd TestNG
-          -mvn test
+      run: -"export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
+        -cd TestNG
+        -mvn test
