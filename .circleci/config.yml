@@ -5,6 +5,7 @@ orbs:
 
 workflows:
   maven_test:
-    jobs: -"export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
-      -cd TestNG
-      -mvn test
+    jobs: 
+     "export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
+      cd TestNG
+      mvn test
