@@ -5,7 +5,7 @@ jobs:
     steps:
       - checkout
      run:
-        commands:
+        command: |
           -"export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
           -cd TestNG
           -mvn test
