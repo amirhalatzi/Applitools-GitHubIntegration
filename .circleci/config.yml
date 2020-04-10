@@ -7,6 +7,6 @@ jobs:
       - checkout
      run:
         command: |
-          -"export APPLITOOLS_BATCH_ID=`echo $CIRCLE_SHA1`"
-          -cd TestNG
-          -mvn test
+          echo "export APPLITOOLS_BATCH_ID=$CIRCLE_SHA1" >> $BASH_ENV
+          cd TestNG
+          mvn test
