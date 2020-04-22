@@ -53,13 +53,11 @@ public class NewTest {
 		try {
 			System.out.println("in test method");
 
-			// eyes.setBranchName("BranchName");
-			// eyes.setBranchName("SophieDePaula/Applitools-GitHubIntegration/master2");
 			eyes.setSaveNewTests(true);
 
 			eyes.open(driver, AppName, TestName, new RectangleSize(800, 600));
 
-			driver.get("https://applitools.com/helloworld/?diff2");
+			driver.get("https://applitools.com/helloworld/?diff1");
 
 			// eyes.checkWindow();
 			eyes.check("test", Target.window());
